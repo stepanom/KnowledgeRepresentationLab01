@@ -34,7 +34,7 @@ import itertools
 import random
 from collections import defaultdict
 
-from agents import Agent, Glitter, Bump, Stench, Breeze, Scream
+from agents import Agent, Glitter, Boundary, Stench, Breeze, Scream
 from search import astar_search, PlanRoute
 from utils4e import remove_all, unique, first, probability, isnumber, issequence, Expr, expr, subexpressions
 
@@ -946,7 +946,7 @@ class WumpusKB(PropKB):
         if isinstance(percept, Glitter):
             flags[0] = 1
             self.tell(percept_glitter(time))
-        elif isinstance(percept, Bump):
+        elif isinstance(percept, Boundary):
             flags[1] = 1
             self.tell(percept_bump(time))
         elif isinstance(percept, Stench):

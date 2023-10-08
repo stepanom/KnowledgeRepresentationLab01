@@ -67,6 +67,8 @@ class Thing:
 
 
 class Agent(Thing):
+    alive: bool
+    bump: bool
     """An Agent is a subclass of Thing with one required instance attribute 
     (aka slot), .program, which should hold a function that takes one argument,
     the percept, and returns an action. (What counts as a percept or action 
@@ -814,7 +816,7 @@ class Gold(Thing):
     pass
 
 
-class Bump(Thing):
+class Boundary(Thing):
     pass
 
 
@@ -919,7 +921,7 @@ class WumpusEnvironment(XYEnvironment):
         and replaces some items with percepts from chapter 7."""
         thing_percepts = {
             Gold: Glitter(),
-            Wall: Bump(),
+            Wall: Boundary(),
             Wumpus: Stench(),
             Pit: Breeze()}
 

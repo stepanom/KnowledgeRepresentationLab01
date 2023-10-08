@@ -4,7 +4,7 @@ import pytest
 
 from agents import (ReflexVacuumAgent, ModelBasedVacuumAgent, TrivialVacuumEnvironment, compare_agents,
                     RandomVacuumAgent, TableDrivenVacuumAgent, TableDrivenAgentProgram, RandomAgentProgram,
-                    SimpleReflexAgentProgram, ModelBasedReflexAgentProgram, Wall, Gold, Explorer, Thing, Bump, Glitter,
+                    SimpleReflexAgentProgram, ModelBasedReflexAgentProgram, Wall, Gold, Explorer, Thing, Boundary, Glitter,
                     WumpusEnvironment, Pit, VacuumEnvironment, Dirt, Direction, Agent)
 
 # random seed may affect the placement
@@ -331,7 +331,7 @@ def test_WumpusEnvironment():
     agent.location = (1, 2)
     percepts = w.percept(agent)
     assert len(percepts) == 5
-    assert any(map(lambda x: isinstance(x, Bump), percepts[0]))
+    assert any(map(lambda x: isinstance(x, Boundary), percepts[0]))
 
     # check Gold
     agent.location = gold.location
